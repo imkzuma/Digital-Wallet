@@ -21,14 +21,9 @@ struct System{
     unsigned int Select;
 
     void clearScr(){
-        #if defined (WIN32) || defined (_WIN32) || defined (__WIN32__) || defined (__NT__)  // MACROS PREDEFINED UNTUK MENGETAHUI OS YANG DIGUNAKAN ADALAH WINDOWS
-            #ifdef __WIN64__
-                system("cls");
-            #else
-                system("cls");
-            #endif
-            
-        #else     // MACROS PREDEFINED UNTUK MENGETAHUI OS YANG DIGUNAKAN ADALAH SELAIN WINDOWS
+        #ifdef _WIN32
+	    system("cls");
+        #else  
             system("clear");
 
         #endif
